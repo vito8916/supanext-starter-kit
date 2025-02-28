@@ -13,7 +13,7 @@ export default function Home() {
                   <header className="container mx-auto px-4 py-6">
                       <nav className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
-                              <div className="h-8 w-8 rounded-lg bg-[#FFF27A] flex items-center justify-center">
+                              <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
                                   <Wand2 className="h-4 w-4 text-background" />
                               </div>
                               <span className="text-xl font-bold">SupaNextKit</span>
@@ -23,7 +23,7 @@ export default function Home() {
                                   <Button variant="ghost">Sign In</Button>
                               </Link>
                               <Link href="/sign-up">
-                                  <Button className="bg-[#FFF27A] hover:bg-[#FFF27A]/90 text-background">
+                                  <Button className="bg-primary hover:bg-primary/90 text-background">
                                       Get Started
                                   </Button>
                               </Link>
@@ -35,7 +35,7 @@ export default function Home() {
                       <div className="max-w-3xl mx-auto text-center">
                           <h1 className="text-5xl font-bold mb-6">
                               Transform Your Designs into{" "}
-                              <span className="text-[#FFF27A]">Perfect Code</span>
+                              <span className="text-primary">Perfect Code</span>
                           </h1>
                           <p className="text-xl text-muted-foreground mb-8">
                               Generate precise coding prompts from your designs using advanced AI.
@@ -43,7 +43,7 @@ export default function Home() {
                           </p>
                           <div className="flex flex-col sm:flex-row gap-4 justify-center">
                               <Link href="/auth/sign-up">
-                                  <Button size="lg" className="bg-[#FFF27A] hover:bg-[#FFF27A]/90 text-background gap-2">
+                                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-background gap-2">
                                       Start Free Trial
                                       <ArrowRight className="h-4 w-4" />
                                   </Button>
@@ -73,8 +73,8 @@ export default function Home() {
 
                   <div className="grid gap-8 md:grid-cols-3">
                       <Card className="p-6 bg-background/50">
-                          <div className="h-12 w-12 rounded-lg bg-[#FFF27A]/20 flex items-center justify-center mb-4">
-                              <Code2 className="h-6 w-6 text-[#FFF27A]" />
+                          <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                              <Code2 className="h-6 w-6 text-primary" />
                           </div>
                           <h3 className="text-xl font-bold mb-2">Smart Analysis</h3>
                           <p className="text-muted-foreground">
@@ -84,8 +84,8 @@ export default function Home() {
                       </Card>
 
                       <Card className="p-6 bg-background/50">
-                          <div className="h-12 w-12 rounded-lg bg-[#FFF27A]/20 flex items-center justify-center mb-4">
-                              <Wand2 className="h-6 w-6 text-[#FFF27A]" />
+                          <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                              <Wand2 className="h-6 w-6 text-primary" />
                           </div>
                           <h3 className="text-xl font-bold mb-2">AI Optimization</h3>
                           <p className="text-muted-foreground">
@@ -95,8 +95,8 @@ export default function Home() {
                       </Card>
 
                       <Card className="p-6 bg-background/50">
-                          <div className="h-12 w-12 rounded-lg bg-[#FFF27A]/20 flex items-center justify-center mb-4">
-                              <Sparkles className="h-6 w-6 text-[#FFF27A]" />
+                          <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
+                              <Sparkles className="h-6 w-6 text-primary" />
                           </div>
                           <h3 className="text-xl font-bold mb-2">Code Context</h3>
                           <p className="text-muted-foreground">
@@ -139,8 +139,8 @@ export default function Home() {
                               },
                           ].map((benefit) => (
                               <div key={benefit.title} className="flex gap-4 items-start">
-                                  <div className="h-6 w-6 rounded-full bg-[#FFF27A]/20 flex items-center justify-center flex-shrink-0">
-                                      <Check className="h-4 w-4 text-[#FFF27A]" />
+                                  <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                                      <Check className="h-4 w-4 text-primary" />
                                   </div>
                                   <div>
                                       <h3 className="font-medium mb-1">{benefit.title}</h3>
@@ -167,7 +167,7 @@ export default function Home() {
                       streamline their development process.
                   </p>
                   <Link href="/auth/sign-up">
-                      <Button size="lg" className="bg-[#FFF27A] hover:bg-[#FFF27A]/90 text-background gap-2">
+                      <Button size="lg" className="bg-primary hover:bg-primary/90 text-background gap-2">
                           Get Started for Free
                           <ArrowRight className="h-4 w-4" />
                       </Button>
@@ -180,7 +180,7 @@ export default function Home() {
               <div className="container mx-auto px-4">
                   <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                       <div className="flex items-center gap-2">
-                          <div className="h-8 w-8 rounded-lg bg-[#FFF27A] flex items-center justify-center">
+                          <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
                               <Wand2 className="h-4 w-4 text-background" />
                           </div>
                           <span className="text-xl font-bold">Promptify</span>

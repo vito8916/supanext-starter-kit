@@ -8,7 +8,7 @@ export default function Home() {
       <div className="min-h-screen bg-background">
           {/* Hero Section */}
           <div className="relative">
-              <div className="absolute inset-0 bg-[url('/waves.svg')] bg-cover opacity-50" />
+              <div className="absolute inset-0 bg-[url('/pattern-7.svg')] bg-cover opacity-50" />
               <div className="relative z-10">
                   <header className="container mx-auto px-4 py-6">
                       <nav className="flex items-center justify-between">
@@ -157,7 +157,7 @@ export default function Home() {
 
           {/* CTA Section */}
           <section className="py-20 bg-secondary relative overflow-hidden">
-              <div className="absolute inset-0 bg-[url('/waves.svg')] bg-cover opacity-50" />
+              <div className="absolute inset-0 bg-[url('/pattern-7.svg')] bg-cover opacity-50" />
               <div className="relative z-10 container mx-auto px-4 text-center">
                   <h2 className="text-3xl font-bold mb-4">
                       Ready to Transform Your Development Workflow?
@@ -183,7 +183,7 @@ export default function Home() {
                           <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
                               <Wand2 className="h-4 w-4 text-background" />
                           </div>
-                          <span className="text-xl font-bold">Promptify</span>
+                          <span className="text-xl font-bold">SupaNext Kit</span>
                       </div>
                       <div className="text-sm text-muted-foreground">
                           © 2024 Promptify. All rights reserved.

@@ -1,6 +1,6 @@
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
-import {ArrowRight, Check, Code2, Sparkles, Wand2} from "lucide-react";
+import {ArrowRight, Check, Database, Settings, Shield, Sparkles} from "lucide-react";
 import {Card} from "@/components/ui/card";
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
                       <nav className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
                               <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                                  <Wand2 className="h-4 w-4 text-background" />
+                                  <Database className="h-4 w-4 text-background" />
                               </div>
                               <span className="text-xl font-bold">SupaNextKit</span>
                           </div>
@@ -34,17 +34,17 @@ export default function Home() {
                   <main className="container mx-auto px-4 py-20">
                       <div className="max-w-3xl mx-auto text-center">
                           <h1 className="text-5xl font-bold mb-6">
-                              Transform Your Designs into{" "}
-                              <span className="text-primary">Perfect Code</span>
+                              Jumpstart Your Next Project with{" "}
+                              <span className="text-primary">Supabase + Next.js</span>
                           </h1>
                           <p className="text-xl text-muted-foreground mb-8">
-                              Generate precise coding prompts from your designs using advanced AI.
-                              Save time and ensure consistency in your development workflow.
+                              A complete starter kit with authentication, dashboard, and settings pages.
+                              Start building your application in minutes, not days.
                           </p>
                           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                              <Link href="/auth/sign-up">
+                              <Link href="/sign-up">
                                   <Button size="lg" className="bg-primary hover:bg-primary/90 text-background gap-2">
-                                      Start Free Trial
+                                      Get Started
                                       <ArrowRight className="h-4 w-4" />
                                   </Button>
                               </Link>
@@ -64,44 +64,44 @@ export default function Home() {
           <section className="py-20 bg-secondary">
               <div className="container mx-auto px-4">
                   <div className="text-center mb-16">
-                      <h2 className="text-3xl font-bold mb-4">How It Works</h2>
+                      <h2 className="text-3xl font-bold mb-4">Key Features</h2>
                       <p className="text-muted-foreground max-w-2xl mx-auto">
-                          Our AI-powered platform simplifies the process of turning designs into
-                          code by generating precise, context-aware prompts.
+                          Everything you need to quickly start building your Next.js application with Supabase
+                          backend and authentication.
                       </p>
                   </div>
 
                   <div className="grid gap-8 md:grid-cols-3">
                       <Card className="p-6 bg-background/50">
                           <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
-                              <Code2 className="h-6 w-6 text-primary" />
+                              <Shield className="h-6 w-6 text-primary" />
                           </div>
-                          <h3 className="text-xl font-bold mb-2">Smart Analysis</h3>
+                          <h3 className="text-xl font-bold mb-2">Authentication</h3>
                           <p className="text-muted-foreground">
-                              Upload your design and our AI analyzes patterns, layouts, and
-                              technical requirements.
+                              Complete authentication system with email/password login and multiple
+                              provider options powered by Supabase Auth.
                           </p>
                       </Card>
 
                       <Card className="p-6 bg-background/50">
                           <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
-                              <Wand2 className="h-6 w-6 text-primary" />
+                              <Database className="h-6 w-6 text-primary" />
                           </div>
-                          <h3 className="text-xl font-bold mb-2">AI Optimization</h3>
+                          <h3 className="text-xl font-bold mb-2">Supabase Integration</h3>
                           <p className="text-muted-foreground">
-                              Our AI generates optimized prompts that ensure accurate and
-                              efficient code implementation.
+                              Pre-configured Supabase client with database and storage access,
+                              ready for your application&apos;s needs.
                           </p>
                       </Card>
 
                       <Card className="p-6 bg-background/50">
                           <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
-                              <Sparkles className="h-6 w-6 text-primary" />
+                              <Settings className="h-6 w-6 text-primary" />
                           </div>
-                          <h3 className="text-xl font-bold mb-2">Code Context</h3>
+                          <h3 className="text-xl font-bold mb-2">User Dashboard</h3>
                           <p className="text-muted-foreground">
-                              Get framework-specific prompts with relevant code snippets and
-                              examples.
+                              Ready-to-use dashboard with profile settings, password management,
+                              and appearance customization.
                           </p>
                       </Card>
                   </div>
@@ -113,29 +113,29 @@ export default function Home() {
               <div className="container mx-auto px-4">
                   <div className="max-w-3xl mx-auto">
                       <h2 className="text-3xl font-bold mb-12 text-center">
-                          Why Choose Promptify?
+                          Why Use SupaNextKit?
                       </h2>
                       <div className="space-y-6">
                           {[
                               {
                                   title: "Save Development Time",
                                   description:
-                                      "Reduce the time spent translating designs into code with AI-generated prompts",
+                                      "Skip the boilerplate setup and focus on building your unique features",
                               },
                               {
-                                  title: "Maintain Consistency",
+                                  title: "Modern Tech Stack",
                                   description:
-                                      "Ensure consistent coding patterns and standards across your projects",
+                                      "Built with Next.js 14, Supabase, and Tailwind CSS for a powerful development experience",
                               },
                               {
-                                  title: "Framework Agnostic",
+                                  title: "Authentication Ready",
                                   description:
-                                      "Support for multiple frameworks and libraries including React, Vue, and Angular",
+                                      "Complete authentication system with multiple providers and user management",
                               },
                               {
-                                  title: "Free to Start",
+                                  title: "Responsive UI",
                                   description:
-                                      "Begin with 3 free prompts to experience the power of AI-assisted development",
+                                      "Beautiful, responsive UI components built with Tailwind CSS and Shadcn UI",
                               },
                           ].map((benefit) => (
                               <div key={benefit.title} className="flex gap-4 items-start">
@@ -160,15 +160,14 @@ export default function Home() {
               <div className="absolute inset-0 bg-[url('/pattern-7.svg')] bg-cover opacity-50" />
               <div className="relative z-10 container mx-auto px-4 text-center">
                   <h2 className="text-3xl font-bold mb-4">
-                      Ready to Transform Your Development Workflow?
+                      Ready to Build Your Next Project?
                   </h2>
                   <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                      Join thousands of developers who are already using Promptify to
-                      streamline their development process.
+                      Get started with SupaNextKit today and launch your application faster than ever.
                   </p>
-                  <Link href="/auth/sign-up">
+                  <Link href="/sign-up">
                       <Button size="lg" className="bg-primary hover:bg-primary/90 text-background gap-2">
-                          Get Started for Free
+                          Start Building Now
                           <ArrowRight className="h-4 w-4" />
                       </Button>
                   </Link>
@@ -181,12 +180,12 @@ export default function Home() {
                   <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                       <div className="flex items-center gap-2">
                           <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                              <Wand2 className="h-4 w-4 text-background" />
+                              <Database className="h-4 w-4 text-background" />
                           </div>
-                          <span className="text-xl font-bold">SupaNext Kit</span>
+                          <span className="text-xl font-bold">SupaNextKit</span>
                       </div>
                       <div className="text-sm text-muted-foreground">
-                          © 2024 Promptify. All rights reserved.
+                          © 2024 SupaNextKit. All rights reserved.
                       </div>
                   </div>
               </div>

@@ -1,6 +1,6 @@
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
-import {ArrowRight, Check, Database, Settings, Shield, Sparkles} from "lucide-react";
+import {ArrowRight, Check, Database, Settings, Shield, Sparkles, Github, Facebook} from "lucide-react";
 import {Card} from "@/components/ui/card";
 
 export default function Home() {
@@ -77,10 +77,27 @@ export default function Home() {
                               <Shield className="h-6 w-6 text-primary" />
                           </div>
                           <h3 className="text-xl font-bold mb-2">Authentication</h3>
-                          <p className="text-muted-foreground">
-                              Complete authentication system with email/password login and multiple
+                          <p className="text-muted-foreground mb-4">
+                              Complete authentication system with email/password login and social
                               provider options powered by Supabase Auth.
                           </p>
+                          <div className="flex flex-wrap gap-2 mt-2">
+                              <div className="flex items-center gap-1 text-sm bg-primary/10 px-2 py-1 rounded-md">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5.01 14.99c-1.73 1.05-3.5 1.63-5.01 1.63-1.51 0-3.28-.58-5.01-1.63-1.99-1.21-3.38-2.95-3.38-4.99 0-2.04 1.39-3.78 3.38-4.99 1.73-1.05 3.5-1.63 5.01-1.63 1.51 0 3.28.58 5.01 1.63 1.99 1.21 3.38 2.95 3.38 4.99 0 2.04-1.39 3.78-3.38 4.99z" />
+                                      <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" />
+                                  </svg>
+                                  Google
+                              </div>
+                              <div className="flex items-center gap-1 text-sm bg-primary/10 px-2 py-1 rounded-md">
+                                  <Github className="w-4 h-4" />
+                                  GitHub
+                              </div>
+                              <div className="flex items-center gap-1 text-sm bg-primary/10 px-2 py-1 rounded-md">
+                                  <Facebook className="w-4 h-4" />
+                                  Facebook
+                              </div>
+                          </div>
                       </Card>
 
                       <Card className="p-6 bg-background/50">
@@ -125,17 +142,17 @@ export default function Home() {
                               {
                                   title: "Modern Tech Stack",
                                   description:
-                                      "Built with Next.js 14, Supabase, and Tailwind CSS for a powerful development experience",
+                                      "Built with Next.js 15, Supabase, and Tailwind CSS 4 for a powerful development experience",
                               },
                               {
                                   title: "Authentication Ready",
                                   description:
-                                      "Complete authentication system with multiple providers and user management",
+                                      "Complete authentication system with email/password and social providers (Google, GitHub, Facebook)",
                               },
                               {
                                   title: "Responsive UI",
                                   description:
-                                      "Beautiful, responsive UI components built with Tailwind CSS and Shadcn UI",
+                                      "Beautiful, responsive UI components built with Tailwind CSS 4 and Shadcn UI",
                               },
                           ].map((benefit) => (
                               <div key={benefit.title} className="flex gap-4 items-start">

@@ -56,7 +56,7 @@ A modern, full-featured starter kit combining Next.js 15 with Supabase for authe
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/supanext-starter-kit.git
+   git clone https://github.com/vito8916/supanext-starter-kit.git
    cd supanext-starter-kit
    ```
 

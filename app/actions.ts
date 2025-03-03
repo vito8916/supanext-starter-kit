@@ -3,6 +3,9 @@
 import { createClient } from "@/utils/supabase/server";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { updateProfileAction, updatePasswordAction } from "@/app/actions/settings";
+
+export { updateProfileAction, updatePasswordAction };
 
 export const signUpAction = async (formData: FormData) => {
   const email = formData.get("email")?.toString();

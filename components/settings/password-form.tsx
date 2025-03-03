@@ -15,8 +15,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { passwordFormSchema, type PasswordFormValues } from "@/lib/validations/settings";
+import { useState } from "react";
+import { updatePasswordAction } from "@/app/actions/settings";
+import { LoaderCircle } from "lucide-react";
 
-// This can come from your database or API.
+// Default values for the form
 const defaultValues: Partial<PasswordFormValues> = {
   currentPassword: "",
   newPassword: "",
@@ -24,19 +27,43 @@ const defaultValues: Partial<PasswordFormValues> = {
 };
 
 export function PasswordForm() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const form = useForm<PasswordFormValues>({
     resolver: zodResolver(passwordFormSchema),
     defaultValues,
     mode: "onChange",
   });
 
-  function onSubmit(data: PasswordFormValues) {
-    // Here you would typically call an API to update the password
-    console.log("Password update data:", data);
-    
-    toast("Password updated", {
-      description: "Your password has been updated successfully.",
-    });
+  async function onSubmit(data: PasswordFormValues) {
+    setIsLoading(true);
+    try {
+      // Create FormData object
+      const formData = new FormData();
+      formData.append("currentPassword", data.currentPassword);
+      formData.append("newPassword", data.newPassword);
+      formData.append("confirmPassword", data.confirmPassword);
+      
+      // Call the server action
+      const result = await updatePasswordAction(formData);
+      
+      if (result.error) {
+        toast.error(result.error);
+        return;
+      }
+      
+      if (result.success) {
+        toast.success(result.success);
+        
+        // Reset the form after successful password change
+        form.reset(defaultValues);
+      }
+    } catch (error) {
+      console.error("Password update error:", error);
+      toast.error("Failed to update password. Please try again later.");
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -90,7 +117,10 @@ export function PasswordForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Update password</Button>
+        <Button type="submit" disabled={isLoading}>
+          {isLoading && <LoaderCircle className="mr-2 h-4 w-4 animate-spin" />}
+          Update password
+        </Button>
       </form>
     </Form>
   );

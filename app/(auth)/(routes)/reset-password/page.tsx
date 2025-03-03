@@ -1,10 +1,8 @@
-import React from 'react';
+import ResetPasswordForm from "@/components/auth/reset-password-form";
 
 const Page = () => {
     return (
-        <div>
-            Reset Password
-        </div>
+        <ResetPasswordForm />
     );
 };
 

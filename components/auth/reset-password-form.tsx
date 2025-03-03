@@ -6,26 +6,47 @@ import {Input} from "@/components/ui/input";
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
 import {LoaderCircle} from "lucide-react";
-import {ForgotPasswordFormValues, forgotPasswordSchema} from "@/lib/validations/auth";
+import {
+    ResetPasswordFormValues,
+    resetPasswordSchema
+} from "@/lib/validations/auth";
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
+import {resetPasswordAction} from "@/app/actions";
+import {toast} from "sonner";
+import {useState} from "react";
+import {useRouter} from "next/navigation";
 
-const ForgotPasswordForm = () => {
+const ResetPasswordForm = () => {
+    const [formMessage, setFormMessage] = useState("");
+    const router = useRouter();
 
-    const form = useForm<ForgotPasswordFormValues>({
-        resolver: zodResolver(forgotPasswordSchema),
+    const form = useForm<ResetPasswordFormValues>({
+        resolver: zodResolver(resetPasswordSchema),
         defaultValues: {
-            email: "",
+            password: "",
+            confirmPassword: "",
         },
     });
 
-    const onSubmit = (data: ForgotPasswordFormValues) => {
+    const onSubmit = async (data: ResetPasswordFormValues) => {
         try {
             const formData = new FormData();
-            formData.append("email", data.email);
+            formData.append('password', data.password);
+            formData.append('confirmPassword', data.confirmPassword);
             console.log(formData);
+
+            const result = await resetPasswordAction(formData);
+            setFormMessage(result.message);
+
+            toast.success(result.message);
+            router.push(result.redirect);
+
         } catch (error) {
             console.error(error);
+            toast.error(
+                formMessage || "Unknown error, please try again later"
+            );
         }
     };
 
@@ -43,14 +64,29 @@ const ForgotPasswordForm = () => {
                             <div className="grid gap-2">
                                 <FormField
                                     control={form.control}
-                                    name="email"
-                                    render={({field}) => (
+                                    name="password"
+                                    render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel>Email</FormLabel>
+                                            <FormLabel>New password</FormLabel>
                                             <FormControl>
-                                                <Input placeholder="Enter your email" {...field} />
+                                                <Input type="password" placeholder="New password" {...field} />
                                             </FormControl>
-                                            <FormMessage/>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                            </div>
+                            <div className="grid gap-2">
+                                <FormField
+                                    control={form.control}
+                                    name="confirmPassword"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Confirm password</FormLabel>
+                                            <FormControl>
+                                                <Input type="password" placeholder="Confirm password" {...field} />
+                                            </FormControl>
+                                            <FormMessage />
                                         </FormItem>
                                     )}
                                 />
@@ -75,4 +111,4 @@ const ForgotPasswordForm = () => {
     );
 };
 
-export default ForgotPasswordForm;
+export default ResetPasswordForm;

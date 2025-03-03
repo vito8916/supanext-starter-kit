@@ -1,9 +1,7 @@
 'use client';
 
-import React, {useState} from 'react';
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
 import {Input} from "@/components/ui/input";
-import InputError from "@/components/input-error";
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
 import {LoaderCircle} from "lucide-react";
@@ -11,9 +9,14 @@ import {useForm} from "react-hook-form";
 import {SignUpFormValues, signUpSchema} from "@/lib/validations/auth";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
+import { signUpAction } from '@/app/actions';
+import { toast } from 'sonner';
+import { useState } from "react";
 
 const RegisterForm = () => {
-    const [messageError, setMessageError] = useState("");
+    const [formMessage, setFormMessage] = useState("");
+    const [hasMessage, setHasMessage] = useState(false);
+    const [status, setStatus] = useState("");
 
     const form = useForm<SignUpFormValues>({
         resolver: zodResolver(signUpSchema),
@@ -24,17 +27,31 @@ const RegisterForm = () => {
         },
     })
 
-    const onSubmit = (data: SignUpFormValues) => {
+    const onSubmit = async (data: SignUpFormValues) => {
         try {
             // Handle sign in logic here
             const formData = new FormData();
             formData.append("email", data.email);
             formData.append("password", data.password);
             formData.append('fullName', data.fullName)
-            console.log(formData);
+
+            const result = await signUpAction(formData);
+            setFormMessage(result.message);
+            setStatus(result.status);
+            setHasMessage(true);
+
+            if (result.status === "error") {
+                toast.error(result.message);
+            }
+
+            if (result.status === "success") {
+                toast.success(result.message);
+            }
             form.reset();
+
         } catch (error) {
             console.error(error);
+            toast.error(formMessage || "Unknown error, please try again later");
         }
     };
     const {isSubmitting} = form.formState;
@@ -44,6 +61,9 @@ const RegisterForm = () => {
             <CardHeader className="px-10 pt-8 pb-0 text-center">
                 <CardTitle className="text-xl">Sign Up</CardTitle>
                 <CardDescription>Create a new account</CardDescription>
+                <div className={`text-sm text-center ${status === "error" ? "text-red-500" : "text-green-500"}`}>
+                    {hasMessage && formMessage}
+                </div>
             </CardHeader>
             <CardContent className="px-10 py-8">
                 <Form {...form}>
@@ -79,7 +99,6 @@ const RegisterForm = () => {
                                         </FormItem>
                                     )}
                                 />
-                                <InputError message={messageError}/>
                             </div>
 
                             <div className="grid gap-2">

@@ -3,11 +3,25 @@ import AppLogo from "@/components/app-logo";
 import Link from "next/link";
 import {NavMain} from "@/components/dashboard/nav-main";
 import {NavUser} from "@/components/dashboard/nav-user";
+import { createClient } from '@/utils/supabase/server';
 
+export async function AppSidebar() {
+    const supabase = await createClient();   
+    //get the user
+    const { data: { user } } = await supabase.auth.getUser();
 
-export function AppSidebar() {
+    if (!user) {
+        return null;
+    }
+
+    const userInfo = {
+        name: user.user_metadata.full_name,
+        email: user.email || "",
+        avatar: user.user_metadata.avatar,
+    };
+
     return (
-        <Sidebar collapsible="icon" variant="sidebar">
+        <Sidebar collapsible="icon" variant="sidebar"> {/* You can change the variant to "sidebar" or "inset" */}
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
@@ -25,7 +39,7 @@ export function AppSidebar() {
             </SidebarContent>
 
             <SidebarFooter>
-                <NavUser />
+                <NavUser user={userInfo} />
             </SidebarFooter>
         </Sidebar>
     );

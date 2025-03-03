@@ -47,6 +47,7 @@ export const updateSession = async (request: NextRequest) => {
       return NextResponse.redirect(new URL("/sign-in", request.url));
     }
 
+    // if user is logged in, redirect to dashboard
     if (request.nextUrl.pathname === "/" && !user.error) {
       return NextResponse.redirect(new URL("/dashboard", request.url));
     }

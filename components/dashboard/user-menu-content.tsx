@@ -1,16 +1,16 @@
 import { DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
 import { UserInfo } from '@/components/dashboard/user-info';
-import { useMobileNavigation } from '@/hooks/use-mobile-navigation';
-import { type User } from '@/types';
 import Link from 'next/link';
 import { LogOut, Settings } from 'lucide-react';
+import { signOutAction } from '@/app/actions';
 
-interface UserMenuContentProps {
-    user: User;
+interface User {
+    name: string;
+    email: string;
+    avatar: string;
 }
 
-export function UserMenuContent({ user }: UserMenuContentProps) {
-    const cleanup = useMobileNavigation();
+export function UserMenuContent({user}: {user: User}) {
 
     return (
         <>
@@ -22,7 +22,7 @@ export function UserMenuContent({ user }: UserMenuContentProps) {
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
                 <DropdownMenuItem asChild>
-                    <Link className="block w-full" href={"/settings"} as="button" prefetch onClick={cleanup}>
+                    <Link className="block w-full" href={"/settings"} as="button" prefetch>
                         <Settings className="mr-2" />
                         Settings
                     </Link>
@@ -30,7 +30,7 @@ export function UserMenuContent({ user }: UserMenuContentProps) {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
-                <Link className="block w-full"  href={"/"} as="button" onClick={cleanup}>
+                <Link className="block w-full"  href={"/"} as="button" onClick={signOutAction}>
                     <LogOut className="mr-2" />
                     Log out
                 </Link>

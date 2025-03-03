@@ -6,17 +6,14 @@ import { UserInfo } from '@/components/dashboard/user-info';
 import { UserMenuContent } from '@/components/dashboard/user-menu-content';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { ChevronsUpDown } from 'lucide-react';
-import {User} from "@/types";
 
-const USER: User = {
-    id: 2324,
-    name: "John Doe",
-    email: "",
-    created_at: "2023-10-01",
-    updated_at: "2023-10-01"
+interface User {
+    name: string;
+    email: string;
+    avatar: string;
 }
 
-export function NavUser() {
+export function NavUser({user}: {user: User}) {
     const { state } = useSidebar();
     const isMobile = useIsMobile();
 
@@ -26,7 +23,7 @@ export function NavUser() {
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <SidebarMenuButton size="lg" className="text-sidebar-accent-foreground data-[state=open]:bg-sidebar-accent group">
-                            <UserInfo user={USER} />
+                            <UserInfo user={user} />
                             <ChevronsUpDown className="ml-auto size-4" />
                         </SidebarMenuButton>
                     </DropdownMenuTrigger>
@@ -35,7 +32,7 @@ export function NavUser() {
                         align="end"
                         side={isMobile ? 'bottom' : state === 'collapsed' ? 'left' : 'bottom'}
                     >
-                        <UserMenuContent user={USER} />
+                        <UserMenuContent user={user} />
                     </DropdownMenuContent>
                 </DropdownMenu>
             </SidebarMenuItem>

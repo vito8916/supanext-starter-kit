@@ -28,13 +28,7 @@ export function AppearanceForm() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h3 className="text-lg font-medium">Theme</h3>
-        <p className="text-sm text-muted-foreground">
-          Select the theme for the dashboard.
-        </p>
-      </div>
-      
+
       <div className="flex flex-col sm:flex-row gap-4">
         <Button 
           type="button" 

@@ -21,6 +21,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -28,6 +29,9 @@ import { signInAction } from "@/app/actions/actions";
 import { toast } from "sonner";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { GitHubSignInButton } from "./github-sign-in-button";
+import GoogleSignInButton from "./google-sign-in-button";
+import FacebookSignInButton from "./facebook-sign-in-button";
 
 const LoginForm = () => {
   const [formMessage, setFormMessage] = useState("");
@@ -145,6 +149,16 @@ const LoginForm = () => {
           </form>
         </Form>
       </CardContent>
+      <CardFooter className="flex flex-col gap-y-4">
+      <div className="text-muted-foreground text-center text-sm">
+            Or continue with
+          </div>
+          <div className="flex items-center justify-center gap-x-4">
+            <GitHubSignInButton />
+            <GoogleSignInButton /> 
+            <FacebookSignInButton />
+          </div>
+      </CardFooter>
     </Card>
   );
 };

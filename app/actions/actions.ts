@@ -173,3 +173,56 @@ export const signOutAction = async () => {
   await supabase.auth.signOut();
   return redirect("/sign-in");
 };
+
+/* Sign in method using different providers */
+
+export async function signInWithGitHub() {
+  const supabase = await createClient()
+
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'github',
+    options: {
+      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`
+    }
+  })
+
+  // If there's an error, return it. If success, return the URL.
+  // No `redirect(...)` call here.
+  if (error) {
+    return { error: error.message };
+  }
+
+  return { url: data.url };
+}
+
+export const signInWithGoogleAction = async () => {
+  const supabase = await createClient();
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`
+    }
+  })
+
+  if (error) {
+    return { error: error.message };
+  }
+
+  return { url: data.url };
+};
+
+export const signInWithFacebookAction = async () => {
+  const supabase = await createClient();
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "facebook",
+    options: {
+      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`
+    }
+  })
+
+  if (error) {
+    return { error: error.message };
+  }
+
+  return { url: data.url };
+};

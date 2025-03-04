@@ -78,6 +78,7 @@ A modern, full-featured starter kit combining Next.js 15 with Supabase for authe
    ```
    NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
    NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+   NEXT_PUBLIC_SITE_URL=your-site-url
    ```
 
 4. Run the development server:
@@ -132,6 +133,7 @@ The starter kit includes a complete authentication system:
 
 1. **Sign Up**: Users can create an account with email/password
    - Email verification is required
+   - Social sign up with Google, GitHub, and Facebook
    - User metadata (name) is stored during registration
 
 2. **Sign In**: Users can sign in with multiple methods

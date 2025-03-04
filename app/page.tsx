@@ -43,7 +43,7 @@ export default function Home() {
                       <nav className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
                               <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                                  <Database className="h-4 w-4 text-background" />
+                                  <Database className="h-4 w-4 text-primary-foreground" />
                               </div>
                               <span className="text-xl font-bold">SupaNextKit</span>
                           </div>
@@ -52,7 +52,7 @@ export default function Home() {
                                   <Button variant="ghost">Sign In</Button>
                               </Link>
                               <Link href="/sign-up">
-                                  <Button className="bg-primary hover:bg-primary/90 text-background">
+                                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
                                       Get Started
                                   </Button>
                               </Link>
@@ -72,7 +72,7 @@ export default function Home() {
                           </p>
                           <div className="flex flex-col sm:flex-row gap-4 justify-center">
                               <Link href="/sign-up">
-                                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-background gap-2">
+                                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2">
                                       Get Started
                                       <ArrowRight className="h-4 w-4" />
                                   </Button>
@@ -212,7 +212,7 @@ export default function Home() {
                       Get started with SupaNextKit today and launch your application faster than ever.
                   </p>
                   <Link href="/sign-up">
-                      <Button size="lg" className="bg-primary hover:bg-primary/90 text-background gap-2">
+                      <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2">
                           Start Building Now
                           <ArrowRight className="h-4 w-4" />
                       </Button>
@@ -226,7 +226,7 @@ export default function Home() {
                   <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                       <div className="flex items-center gap-2">
                           <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                              <Database className="h-4 w-4 text-background" />
+                              <Database className="h-4 w-4 text-primary-foreground" />
                           </div>
                           <span className="text-xl font-bold">SupaNextKit</span>
                       </div>

@@ -60,15 +60,13 @@ const LoginForm = () => {
       router.push(result.redirect);
     } catch (error) {
       console.error(error);
-      toast.error(
-        formMessage || "Unknown error, please try again later"
-      );
+      toast.error(formMessage || "Unknown error, please try again later");
     }
   };
 
   const { isSubmitting } = form.formState;
   return (
-    <Card className="rounded-xl">
+    <Card className="rounded-xl gap-y-2">
       <CardHeader className="px-10 pt-8 pb-0 text-center">
         <CardTitle className="text-xl">Sign in</CardTitle>
         <CardDescription>Sign in and access to your account</CardDescription>
@@ -150,14 +148,14 @@ const LoginForm = () => {
         </Form>
       </CardContent>
       <CardFooter className="flex flex-col gap-y-4">
-      <div className="text-muted-foreground text-center text-sm">
-            Or continue with
-          </div>
-          <div className="flex items-center justify-center gap-x-4">
-            <GitHubSignInButton />
-            <GoogleSignInButton /> 
-            <FacebookSignInButton />
-          </div>
+        <div className="text-muted-foreground text-center text-sm">
+          Or continue with
+        </div>
+        <div className="flex items-center justify-center gap-x-4">
+          <GitHubSignInButton />
+          <GoogleSignInButton />
+          <FacebookSignInButton />
+        </div>
       </CardFooter>
     </Card>
   );

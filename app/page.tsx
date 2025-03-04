@@ -1,7 +1,36 @@
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
-import {ArrowRight, Check, Database, Settings, Shield, Sparkles, Github, Facebook} from "lucide-react";
+import {ArrowRight, Check, Database, Settings, Shield, Github, Facebook} from "lucide-react";
 import {Card} from "@/components/ui/card";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "SupaNext Starter Kit - Next.js 15 + Supabase Authentication Template",
+  description: "A modern, full-featured starter kit combining Next.js 15 with Supabase for authentication and data storage. Complete with social login providers, dashboard, and settings.",
+  openGraph: {
+    title: "SupaNext Starter Kit - Next.js 15 + Supabase",
+    description: "A modern starter kit with Next.js 15, Supabase authentication, and beautiful UI components. Includes social login with Google, GitHub, and Facebook.",
+    url: "https://supanext-starter-kit.vicbox.dev",
+    siteName: "SupaNext Starter Kit",
+    images: [
+      {
+        url: "/supanext-kit.webp",
+        width: 1200,
+        height: 630,
+        alt: "SupaNext Starter Kit Preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SupaNext Starter Kit - Next.js 15 + Supabase",
+    description: "A modern starter kit with Next.js 15, Supabase authentication, and beautiful UI components.",
+    images: ["/supanext-kit.webp"],
+  },
+  metadataBase: new URL("https://supanext-starter-kit.vicbox.dev"),
+};
 
 export default function Home() {
   return (
@@ -48,10 +77,10 @@ export default function Home() {
                                       <ArrowRight className="h-4 w-4" />
                                   </Button>
                               </Link>
-                              <Link href="/dashboard">
+                              <Link target="_blank" href="https://github.com/vito8916/supanext-starter-kit">
                                   <Button size="lg" variant="outline" className="gap-2">
-                                      View Demo
-                                      <Sparkles className="h-4 w-4" />
+                                      Source Code
+                                      <Github className="h-4 w-4" />
                                   </Button>
                               </Link>
                           </div>

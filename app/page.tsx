@@ -7,6 +7,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "SupaNext Starter Kit - Next.js 15 + Supabase Authentication Template",
   description: "A modern, full-featured starter kit combining Next.js 15 with Supabase for authentication and data storage. Complete with social login providers, dashboard, and settings.",
+    authors: [{name: "Victor Alvarado", url:"https://victoralvarado.dev"}],
   openGraph: {
     title: "SupaNext Starter Kit - Next.js 15 + Supabase",
     description: "A modern starter kit with Next.js 15, Supabase authentication, and beautiful UI components. Includes social login with Google, GitHub, and Facebook.",
